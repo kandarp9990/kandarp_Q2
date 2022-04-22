@@ -45,6 +45,7 @@ class DBHelper (var context: Context) : SQLiteOpenHelper(context, DB_NAME,null, 
 
         var res = db.insert(TB_USER,null,cn)
         return res
+        db.close()
     }
     fun getUser(uname:String): ArrayList<User>
     {
@@ -64,6 +65,7 @@ class DBHelper (var context: Context) : SQLiteOpenHelper(context, DB_NAME,null, 
             arr.add(us)
         }
         return arr
+        db.close()
     }
     fun insertFruit(fr:Fruit) :Long
     {
@@ -75,6 +77,7 @@ class DBHelper (var context: Context) : SQLiteOpenHelper(context, DB_NAME,null, 
 
         var res = db.insert(TB_FRUIT,null,cn)
         return res
+        db.close()
     }
     fun GetAllFruits() : ArrayList<Fruit>
     {
@@ -93,5 +96,22 @@ class DBHelper (var context: Context) : SQLiteOpenHelper(context, DB_NAME,null, 
             arr.add(fr)
         }
         return arr
+        db.close()
+    }
+    fun update(f:Fruit)
+    {
+        var db=writableDatabase
+        var cv=ContentValues()
+        cv.put(NAME_FR,f.F_Name)
+        cv.put(PRICE_FR,f.F_Price)
+        cv.put(QTY_FR,f.F_Qty)
+        var flag=db.update(TB_FRUIT,cv,"$ID_FR=${f.F_Id}",null)
+        db.close()
+    }
+    fun Delete(id:Int)
+    {
+        var db=writableDatabase
+        db.delete(TB_FRUIT,"$ID_FR=$id",null)
+        db.close()
     }
 }

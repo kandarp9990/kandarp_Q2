@@ -33,6 +33,18 @@ class FruitAdapter (val context: Context, var arr:ArrayList<Fruit>)
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(arr[position])
+        holder.view.imgUpdate.setOnClickListener {
+            if(context is ViewAllFruits)
+            {
+                context.Update(position)
+            }
+        }
+        holder.view.imgDelete.setOnClickListener {
+            if(context is ViewAllFruits)
+            {
+                context.Delete(position)
+            }
+        }
     }
 
     override fun getItemCount(): Int {
