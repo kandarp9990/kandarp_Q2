@@ -39,7 +39,8 @@ class HomePage : AppCompatActivity() {
         }
 
         btnViewAllFruit.setOnClickListener {
-
+            var intent = Intent(this,ViewAllFruits::class.java)
+            startActivity(intent)
         }
     }
 

@@ -69,11 +69,29 @@ class DBHelper (var context: Context) : SQLiteOpenHelper(context, DB_NAME,null, 
     {
         var db = writableDatabase
         var cn = ContentValues()
-        cn.put(NAME_FR,fr.fname)
-        cn.put(PRICE_FR,fr.price)
-        cn.put(QTY_FR,fr.quantity)
+        cn.put(NAME_FR,fr.F_Name)
+        cn.put(PRICE_FR,fr.F_Price)
+        cn.put(QTY_FR,fr.F_Qty)
 
         var res = db.insert(TB_FRUIT,null,cn)
         return res
+    }
+    fun GetAllFruits() : ArrayList<Fruit>
+    {
+        var db = readableDatabase
+        var arr = ArrayList<Fruit>()
+        var cursor = db.query(TB_FRUIT,null,null,null,null,null,null)
+        while(cursor.moveToNext())
+        {
+            var id = cursor.getInt(0)
+            var name = cursor.getString(1)
+            var price = cursor.getDouble(2)
+            var qty = cursor.getInt(3)
+
+            var fr = Fruit(id,name,price,qty)
+
+            arr.add(fr)
+        }
+        return arr
     }
 }
