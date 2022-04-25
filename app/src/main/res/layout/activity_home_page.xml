@@ -11,38 +11,38 @@
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Fruit Shop"
+        android:text="Vehicle Shop"
         android:textSize="30sp"
         android:layout_margin="10dp"
         android:layout_gravity="center"
         android:gravity="center"/>
 
     <EditText
-        android:id="@+id/edtFruitName"
+        android:id="@+id/edtVehicleName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:layout_margin="10dp"
         android:inputType="text"
-        android:hint="Enter Name of Fruit" />
+        android:hint="Enter Name of Vehicle" />
 
     <EditText
-        android:id="@+id/edtqtyFruit"
+        android:id="@+id/edtVehiclemilage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:layout_margin="10dp"
         android:inputType="number"
-        android:hint="Enter Quantity of Fruit" />
+        android:hint="Enter Milage of Vehicle" />
 
     <EditText
-        android:id="@+id/edtFruitPrice"
+        android:id="@+id/edtVehilecapacity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:layout_margin="10dp"
         android:inputType="numberDecimal"
-        android:hint="Enter Price of Fruit" />
+        android:hint="Enter Fuel capicity of Vehicle" />
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -17,16 +17,16 @@ class ViewAllFruits : AppCompatActivity() {
     }
     fun RefreshRecycler()
     {
-        var arr = ArrayList<Fruit>()
+        var arr = ArrayList<vehicle>()
         var db = DBHelper(this)
         arr = db.GetAllFruits()
-        var adapt = FruitAdapter(this,arr)
+        var adapt = vehicleAdapter(this,arr)
         MyRecycleOP.adapter = adapt
     }
     fun Update(position:Int)
     {
         var db=DBHelper(this)
-        var arr:ArrayList<Fruit> = db.GetAllFruits()
+        var arr:ArrayList<vehicle> = db.GetAllFruits()
 
         var dialog= Dialog(this)
         dialog.setCancelable(false)
@@ -44,17 +44,17 @@ class ViewAllFruits : AppCompatActivity() {
         dialog.show()
         dialog.setCancelable(false)
 
-        dialog.txtupId.text = arr[position].F_Id.toString()
-        dialog.edtUpdateFname.setText(arr[position].F_Name)
-        dialog.edtUpdateFPrice.setText(arr[position].F_Price.toString())
-        dialog.edtUpdateFQuantity.setText(arr[position].F_Qty.toString())
+        dialog.txtupId.text = arr[position].v_Id.toString()
+        dialog.edtUpdateFname.setText(arr[position].v_Name)
+        dialog.edtUpdateFPrice.setText(arr[position].v_milage.toString())
+        dialog.edtUpdateFQuantity.setText(arr[position].v_capacity.toString())
 
         dialog.btnFinallyUpdate.setOnClickListener {
             var id=dialog.txtupId.text.toString().toInt()
             var name=dialog.edtUpdateFname.text.toString()
             var price=dialog.edtUpdateFPrice.text.toString()
             var quantity=dialog.edtUpdateFQuantity.text.toString()
-            var f=Fruit(id,name,price.toDouble(),quantity.toInt())
+            var f=vehicle(id,name,price.toDouble(),quantity.toInt())
             db.update(f)
             dialog.dismiss()
             RefreshRecycler()
@@ -64,10 +64,10 @@ class ViewAllFruits : AppCompatActivity() {
     {
         Toast.makeText(applicationContext,"im here", Toast.LENGTH_LONG).show()
         var db=DBHelper(this)
-        var arr:ArrayList<Fruit> = db.GetAllFruits()
+        var arr:ArrayList<vehicle> = db.GetAllFruits()
         var fruit=arr.get(position)
-        Toast.makeText(applicationContext,"${fruit.F_Id}", Toast.LENGTH_LONG).show()
-        db.Delete(fruit.F_Id)
+        Toast.makeText(applicationContext,"${fruit.v_Id}", Toast.LENGTH_LONG).show()
+        db.Delete(fruit.v_Id)
         RefreshRecycler()
     }
 }

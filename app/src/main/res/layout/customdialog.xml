@@ -14,7 +14,7 @@
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="Enter Fruit Name"
+        android:hint="Enter Vehicle Name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,7 +27,7 @@
         android:layout_marginTop="16dp"
         android:textStyle="bold|italic"
         android:textSize="25sp"
-        android:text="Update Fruit"
+        android:text="Update Vehicle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -41,7 +41,7 @@
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:inputType="numberDecimal"
-        android:hint="Enter Fruit Price"
+        android:hint="Enter Vehicle Milage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtUpdateFname" />
@@ -55,7 +55,7 @@
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:inputType="number"
-        android:hint="Enter Fruit Quantity"
+        android:hint="Enter Vehicle Capacity"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtUpdateFPrice" />

@@ -15,21 +15,21 @@ class HomePage : AppCompatActivity() {
         setContentView(R.layout.activity_home_page)
 
         btnInsertFruit.setOnClickListener {
-            if(edtFruitName.text.toString().equals("")||edtFruitPrice.text.toString().equals("")||edtqtyFruit.text.toString().equals(""))
+            if(edtVehicleName.text.toString().equals("")||edtVehiclemilage.text.toString().equals("")||edtVehilecapacity.text.toString().equals(""))
             {
                 Toast.makeText(this,"Enter Data Accurately",Toast.LENGTH_LONG).show()
             }
             else
             {
-                var fr = Fruit(edtFruitName.text.toString(),edtFruitPrice.text.toString().toDouble(),edtqtyFruit.text.toString().toInt())
+                var fr = vehicle(edtVehicleName.text.toString(),edtVehiclemilage.text.toString().toDouble(),edtVehilecapacity.text.toString().toInt())
                 var db = DBHelper(this)
                 var res = db.insertFruit(fr)
                 if(res>0)
                 {
                     Toast.makeText(this,"Fruit Inserted Successfully",Toast.LENGTH_LONG).show()
-                    edtFruitName.setText("")
-                    edtFruitPrice.setText("")
-                    edtqtyFruit.setText("")
+                    edtVehicleName.setText("")
+                    edtVehiclemilage.setText("")
+                    edtVehilecapacity.setText("")
                 }
                 else
                 {

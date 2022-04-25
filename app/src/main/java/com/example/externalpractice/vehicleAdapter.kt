@@ -4,23 +4,22 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.viewallrecyclerstruct.view.*
 
-class FruitAdapter (val context: Context, var arr:ArrayList<Fruit>)
-    : RecyclerView.Adapter<FruitAdapter.ViewHolder>()
+class vehicleAdapter (val context: Context, var arr:ArrayList<vehicle>)
+    : RecyclerView.Adapter<vehicleAdapter.ViewHolder>()
 
 {
 
     class ViewHolder(var view: View): RecyclerView.ViewHolder(view)
     {
-        fun bind(f:Fruit)
+        fun bind(f:vehicle)
         {
-            view.txtStructFId.setText(f.F_Id.toString())
-            view.txtStructFName.setText(f.F_Name)
-            view.txtStructFPrice.setText(f.F_Price.toString())
-            view.txtStructFQty.setText(f.F_Qty.toString())
+            view.txtStructVId.setText(f.v_Id.toString())
+            view.txtStructVName.setText(f.v_Name)
+            view.txtStructFPrice.setText(f.v_milage.toString())
+            view.txtStructFQty.setText(f.v_capacity.toString())
 
         }
     }

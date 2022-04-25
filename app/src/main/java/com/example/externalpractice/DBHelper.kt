@@ -67,22 +67,22 @@ class DBHelper (var context: Context) : SQLiteOpenHelper(context, DB_NAME,null, 
         return arr
         db.close()
     }
-    fun insertFruit(fr:Fruit) :Long
+    fun insertFruit(fr:vehicle) :Long
     {
         var db = writableDatabase
         var cn = ContentValues()
-        cn.put(NAME_FR,fr.F_Name)
-        cn.put(PRICE_FR,fr.F_Price)
-        cn.put(QTY_FR,fr.F_Qty)
+        cn.put(NAME_FR,fr.v_Name)
+        cn.put(PRICE_FR,fr.v_milage)
+        cn.put(QTY_FR,fr.v_capacity)
 
         var res = db.insert(TB_FRUIT,null,cn)
         return res
         db.close()
     }
-    fun GetAllFruits() : ArrayList<Fruit>
+    fun GetAllFruits() : ArrayList<vehicle>
     {
         var db = readableDatabase
-        var arr = ArrayList<Fruit>()
+        var arr = ArrayList<vehicle>()
         var cursor = db.query(TB_FRUIT,null,null,null,null,null,null)
         while(cursor.moveToNext())
         {
@@ -91,21 +91,21 @@ class DBHelper (var context: Context) : SQLiteOpenHelper(context, DB_NAME,null, 
             var price = cursor.getDouble(2)
             var qty = cursor.getInt(3)
 
-            var fr = Fruit(id,name,price,qty)
+            var fr = vehicle(id,name,price,qty)
 
             arr.add(fr)
         }
         return arr
         db.close()
     }
-    fun update(f:Fruit)
+    fun update(f:vehicle)
     {
         var db=writableDatabase
         var cv=ContentValues()
-        cv.put(NAME_FR,f.F_Name)
-        cv.put(PRICE_FR,f.F_Price)
-        cv.put(QTY_FR,f.F_Qty)
-        var flag=db.update(TB_FRUIT,cv,"$ID_FR=${f.F_Id}",null)
+        cv.put(NAME_FR,f.v_Name)
+        cv.put(PRICE_FR,f.v_milage)
+        cv.put(QTY_FR,f.v_capacity)
+        var flag=db.update(TB_FRUIT,cv,"$ID_FR=${f.v_Id}",null)
         db.close()
     }
     fun Delete(id:Int)
